@@ -529,23 +529,15 @@ var EmployeeRow = /*#__PURE__*/function (_React$Component) {
     _this.state = {
       modalVisible: false
     };
-    _this.handleShowModal = _this.handleShowModal.bind(_assertThisInitialized(_this));
-    _this.handleHideModal = _this.handleHideModal.bind(_assertThisInitialized(_this));
+    _this.toggleModal = _this.toggleModal.bind(_assertThisInitialized(_this));
     _this.handleDelete = _this.handleDelete.bind(_assertThisInitialized(_this));
     return _this;
   }
   _createClass(EmployeeRow, [{
-    key: "handleShowModal",
-    value: function handleShowModal() {
+    key: "toggleModal",
+    value: function toggleModal() {
       this.setState({
-        modalVisible: true
-      });
-    }
-  }, {
-    key: "handleHideModal",
-    value: function handleHideModal() {
-      this.setState({
-        modalVisible: false
+        modalVisible: !this.state.modalVisible
       });
     }
   }, {
@@ -566,10 +558,10 @@ var EmployeeRow = /*#__PURE__*/function (_React$Component) {
       }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(react_bootstrap__WEBPACK_IMPORTED_MODULE_8__["default"], {
         variant: "danger",
         size: "sm",
-        onClick: this.handleShowModal
+        onClick: this.toggleModal
       }, "X")), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(react_bootstrap__WEBPACK_IMPORTED_MODULE_9__["default"], {
         show: this.state.modalVisible,
-        onHide: this.handleHideModal,
+        onHide: this.toggleModal,
         centered: true
       }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(react_bootstrap__WEBPACK_IMPORTED_MODULE_9__["default"].Header, {
         closeButton: true
@@ -578,7 +570,7 @@ var EmployeeRow = /*#__PURE__*/function (_React$Component) {
         variant: "danger",
         size: "sm",
         className: "mt-4",
-        onClick: this.handleHideModal
+        onClick: this.toggleModal
       }, "Cancel"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(react_bootstrap__WEBPACK_IMPORTED_MODULE_8__["default"], {
         type: "submit",
         variant: "success",

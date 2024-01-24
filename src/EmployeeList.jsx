@@ -52,15 +52,11 @@ class EmployeeRow extends React.Component{
         this.state = {
             modalVisible: false,
         }
-        this.handleShowModal = this.handleShowModal.bind(this)
-        this.handleHideModal = this.handleHideModal.bind(this)
+        this.toggleModal= this.toggleModal.bind(this)
         this.handleDelete = this.handleDelete.bind(this)
     }
-    handleShowModal() {
-        this.setState({ modalVisible: true, })
-    }
-    handleHideModal() {
-        this.setState({ modalVisible: false, })
+    toggleModal() {
+        this.setState({ modalVisible: !this.state.modalVisible, })
     }
     handleDelete() {
         this.props.deleteEmployee(this.props.employee._id)
@@ -80,12 +76,12 @@ class EmployeeRow extends React.Component{
                 <Button 
                     variant="danger" 
                     size="sm" 
-                    onClick={this.handleShowModal}>
+                    onClick={this.toggleModal}>
                         X
                 </Button>
             </div>
 
-            <Modal show={this.state.modalVisible} onHide={this.handleHideModal} centered>
+            <Modal show={this.state.modalVisible} onHide={this.toggleModal} centered>
                 <Modal.Header closeButton>
                     <Modal.Title>Delete Employee?</Modal.Title>
                 </Modal.Header>
@@ -100,7 +96,7 @@ class EmployeeRow extends React.Component{
                         variant="danger" 
                         size="sm" 
                         className="mt-4" 
-                        onClick={this.handleHideModal}>
+                        onClick={this.toggleModal}>
                             Cancel
                     </Button>
                     <Button 
@@ -118,7 +114,6 @@ class EmployeeRow extends React.Component{
             )
         }
     }
-
 
 export default class EmployeeList extends React.Component{
     constructor() {
